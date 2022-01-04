@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Do NOT change the code below this line */
+
+*{
+	box-sizing: border-box;
+}
+
+[class*="col-"]{
+	float: left;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
