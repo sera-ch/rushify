@@ -7,25 +7,167 @@
     <!--Stylesheet-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="view/css/main.css"/>
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
+    <script src="js/main.js"></script>
 </head>
 <body>
     <header>
         <h1 class = "text-center">Rush Duel Card Maker</h1>
     </header>
     <div class = "row">
-        <div class = "col-6">
-
+        <div class = "col-6 info-input">
+            <div class = "row">
+                <!-- Card name and type -->
+                <div class = "col-6 info">
+                    Card name
+                    <input class = "input" type = "text" maxlength="50" placeholder="Card name" id = "card-name" value = "Summoned Skull">
+                </div>
+                <div class = "col-6 info">
+                    Card type
+                    <select class = "input" name = "ctype" id = "ctype">
+                        <option value = "normal" selected>Normal</option>
+                        <option value = "effect">Effect</option>
+                        <option value = "spell">Spell</option>
+                        <option value = "trap">Trap</option>
+                        <option value = "fusion">Fusion</option>
+                    </select>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-6 info">
+                    <div class = "input">
+                        <input type = "checkbox" value = "legend" checked id = "legend"> Legend
+                    </div>
+                </div>
+            </div>
+            <!-- For Monsters only -->
+            <div class = "row monster-only">
+                <!-- Type and Attribute -->
+                <div class = "col-6 info">
+                    Monster type
+                    <input class = "input" type = "text" maxlength="50" placeholder="Monster type" value = "Fiend/Normal" id = "monster-type">
+                </div>
+                <div class = "col-6 info">
+                    Attribute
+                    <select class = "input" name = "monster-type" id = "monster-attribute">
+                        <option value = "dark" selected>DARK</option>
+                        <option value = "light">LIGHT</option>
+                        <option value = "earth">EARTH</option>
+                        <option value = "wind">WIND</option>
+                        <option value = "water">WATER</option>
+                        <option value = "fire">FIRE</option>
+                    </select>
+                </div>
+            </div>
+            <!-- For Spell/Traps only -->
+            <div class = "row st-only">
+                <div class = "col-6 info">
+                    <!-- Spell/Trap Type -->
+                    Type
+                    <select class = "input" name = "st-type" id = "st-type">
+                        <option value = "normal selected">Normal</option>
+                        <option value = "field">Field</option>
+                        <option value = "counter">Counter</option>
+                    </select>
+                </div>
+                <div class = "col-6 info">
+                </div>
+            </div>
+            <div class = "row monster-only">
+                <!-- For Monsters Only -->
+                <!-- Level and stats -->
+                <div class = "col-6 info">
+                    <div class = "col-6 info">
+                        Level:
+                    </div>
+                    <div class = "col-6">
+                        <input type = "number" class = "input" max = "12" min = "1" placeholder = "Level" value = "6" id = "level">
+                    </div>
+                </div>
+                <div class = "col-6 info">
+                    <div class = "col-3 text-right info">ATK / </div>
+                    <div class = "col-3">
+                        <input class = "input atk" type = "number" max = "99999" min = "0" value = "2500" placeholder="ATK" id = "atk">
+                    </div>
+                    <div class = "col-3 text-right info">DEF / </div>
+                    <div class = "col-3">
+                        <input class = "input def" type = "number" max = "99999" min = "0" value = "1200" placeholder="DEF" id = "def">
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
+                <!-- For Maximum Monsters-->
+                <div class = "col-6 info monster-only">
+                    <div class = "col-1">
+                        <div class = "input">
+                            <input type = "checkbox" value = "maximum" id = "maximum">
+                        </div>
+                    </div>
+                    <div class = "col-2 info">Maximum</div>
+                    <div class = "col-5 text-right info">Maximum ATK: </div>
+                    <div class = "col-4">
+                        <input class = "input" disabled type = "number" max = "99999" min = "0" value = "4000" placeholder="Maximum ATK" id = "maximum-atk">
+                    </div>
+                </div>
+                <!-- Rarity -->
+                <div class = "col-6 info">
+                    <div class = "col-3 info">Rarity:</div>
+                    <div class = "col-9">
+                        <select class = "input" name = "rarity" id = "rarity">
+                            <option value = "common">Common</option>
+                            <option value = "rush" selected>Rush rare</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "info col-2">
+                    ImageURL:
+                </div>
+                <div class = "info col-7">
+                    <input class = "input" type = "text" id = "image-url" value = "https://i.ibb.co/PwVKhdY/image.png">
+                </div>
+                <div class = "info col-3">
+                    <input type = "file" accept = "image/*" id = "upload-img" class = "d-none" data-max-size = "2000">
+                    <button class = "input btn btn-primary" id = "upload-btn">Upload</button>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "info col-12">
+                    Card text:
+                    <textarea class = "input" id = "card-text">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters, this monster boasts considerable force.</textarea>
+                </div>
+            </div>
         </div>
+        <!-- Area to display the card -->
         <div class = "col-6">
-
+            <div class = "display-card">
+                <img src = "view/img/image/image.png" class = "card-image">
+                <img src = "view/img/frame/Normal.png" class = "card-frame">
+                <img src = "view/img/attribute/DARK.png" class = "card-attribute">
+                <p class = "card-name rarity-rush">Summoned Skull</p>
+                <img src = "view/img/stat/Stats.png" class = "card-stats monster-only">
+                <img src = "view/img/stat/Maximum.png" class = "card-maximum monster-only maximum-only">
+                <p class = "card-max-atk rarity-rush monster-only maximum-only">4000</p>
+                <img src = "view/img/stat/level-6.png" class = "card-level monster-only level-only">
+                <p class = "card-atk rarity-rush monster-only">2500</p>
+                <p class = "card-def rarity-rush monster-only">1200</p>
+                <p class = "card-type">Fiend/Normal</p>
+                <div class = "card-lore normal-monster-only">
+                    <p class = "lore">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters,
+                        this monster boasts considerable force.</p>
+                </div>
+                <div class = "card-lore effect-monster-only">
+                    <p class = "lore">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters,
+                        this monster boasts considerable force.</p>
+                </div>
+                <img src = "view/img/stat/legend.png" class = "card-legend">
+            </div>
         </div>
     </div>
 </body>
