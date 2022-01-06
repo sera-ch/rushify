@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$('#card-text').trumbowyg();
+
     var monsterOnly = $('.monster-only');
     var stOnly = $('.st-only');
     var effOnly = $('.effect-monster-only');
@@ -57,14 +59,16 @@ $(document).ready(function(){
         if (cardTypeSelected != "spell" && cardTypeSelected != "trap"){
             $('.card-atk').html($('#atk').val());
             $('.card-def').html($('#def').val());
+            $('.card-atk-rush').html($('#atk').val());
+            $('.card-def-rush').html($('#def').val());
         }
         //Enable Maximum ATK input
         if (cardTypeSelected != "spell" && cardTypeSelected != "trap" && $('#maximum').is(":checked")){
             $('#maximum-atk').removeAttr('disabled');
-            maximumOnly.show();
+            $('.maximum-only').show();
         } else{
             $('#maximum-atk').attr('disabled', 'disabled');
-            maximumOnly.hide();
+            $('.maximum-only').hide();
         }
         //Change monster stats
         if (cardTypeSelected != "spell" && cardTypeSelected != "trap"){
@@ -72,11 +76,11 @@ $(document).ready(function(){
             $('.card-def').html($('#def').val());
             if ($('#maximum').is(':checked')){
                 $('.card-max-atk').html($('#maximum-atk').val());
+                $('.card-max-atk-rush').html($('#maximum-atk').val());
             }
         }
         //Change rarities
         let rarity = $('#rarity option:selected').val();
-        console.log(rarity);
         if (rarity == "common"){
             $('.card-name').removeClass('rarity-rush');
             $('.card-atk').removeClass('rarity-rush');
@@ -93,11 +97,25 @@ $(document).ready(function(){
             }
         }
         //Change card text
-        $('.card-lore').html($('#card-text').val());
+        $('.card-lore').html($('.trumbowyg-editor').html());
+
+        //Change card creator
+        $('.card-creator').html($('#creator').val());
+
+        //Change card set number
+        $('.card-set-number').html($('#set-number').val());
     });
     //Change card image
     $('#image-url').change(function(){
         $(".card-image").attr("src", $("#image-url").val());
+    });
+    $('.trumbowyg-editor').keyup(function(){
+        //Change card text
+        $('.card-lore').html($('.trumbowyg-editor').html());
+    });
+    $('.trumbowyg-editor').focusout(function(){
+        //Change card text
+        $('.card-lore').html($('.trumbowyg-editor').html());
     });
     //Show or hide the LEGEND icon
     $('#legend').change(function(){
@@ -129,4 +147,40 @@ $(document).ready(function(){
     $("#upload-btn").click(function(){
     	$("#upload-img").click();
     });
+    $('#random-generate').click(function(){
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 4; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        result += "-";
+        for ( var i = 0; i < 5; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        $('#set-number').val(result);
+        //Change card set number
+        $('.card-set-number').html(result);
+    });
+    $('#save').click(function(){
+        let div = $('#display-card')[0];
+        html2canvas(div, {allowTaint:true, useCORS:true}).then(
+        function (canvas) {
+            $('#canvas').html(canvas);
+            saveAs(canvas.toDataURL(), $('#set-number').val() + '-' + $('#card-name').val() + '.png');
+        })
+    });
+
+    function saveAs(uri, filename){
+        var link = document.createElement('a');
+        if (typeof link.download === 'string') {
+            link.href = uri;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            window.open(uri);
+        }
+    }
 });

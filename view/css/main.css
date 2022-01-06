@@ -2,6 +2,12 @@
 
 *{
 	box-sizing: border-box;
+	--bs-gutter-x: 0rem !important;
+}
+
+body{
+	background-color: rgb(43, 43, 43);
+	color: white;
 }
 
 .hidden{
@@ -33,13 +39,13 @@
 }
 
 @font-face {
-    font-family: "CardEffect";
-    src: url("../font/Yu-Gi-Oh! Matrix Book.ttf");
+    font-family: "CardType";
+    src: url("../font/Yu-Gi-Oh! ITC Stone Serif Bold Small Caps.ttf");
 }
 
 @font-face {
-    font-family: "CardType";
-    src: url("../font/Yu-Gi-Oh!ITCStoneSerifBoldSmallCaps.ttf");
+    font-family: "CardCreator";
+    src: url("../font/StoneSerifStd-Semibold.otf") format("opentype");
 }
 
 [class*="col-"]{
@@ -76,12 +82,14 @@
 .display-card{
     position: relative;
     width: fit-content;
+	color: black;
 }
 
 .card-image{
     top: 10%;
     left: 5%;
     width: 90%;
+    max-height: 90%;
 }
 
 .card-frame{
@@ -202,11 +210,31 @@
     width: 25.6%;
 }
 
-.rarity-rush{
-    text-shadow: none;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent;
-    background: -webkit-linear-gradient(90deg, #BF953F 0%, #FCF6BA 40%, #B38728 50%, #FBF5B7 60%, #AA771C 100%);
+.card-creator{
+    font-family: CardCreator;
+    color: white;
+    top: 94%;
+    left: 6%;
+    font-size: 110%;
+    width: 33%;
+}
+
+.card-creator::before{
+    content: '© ';
+    font-family: CardCreator;
+    color: white;
+    font-size: 100%;
+}
+
+.card-set-number{
+    text-align: right;
+    font-weight: bold;
+    font-family: "MS UI Gothic";
+    color: white;
+    top: 93.7%;
+    right: 6%;
+    font-size: 130%;
+    width: 33%;
 }
 
 .info-input{
@@ -222,8 +250,18 @@
     height: 100%;
     width: 100%;
     padding: 10px;
+	color: white;
+	background-color: rgb(43, 43, 43);
 }
 
 textarea.input{
     height: 200px;
+}
+
+.padding-5{
+    padding: 0px 5px 0px 5px;
+}
+
+.rarity-rush{
+    color: #e5e619 !important;
 }
