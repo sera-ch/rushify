@@ -9,7 +9,7 @@ $(document).ready(function(){
     var legend = $('.card-legend');
     var cardAttribute = $('.card-attribute')
     var maximumOnly = $('.maximum-only');
-    $('#card-st-type').hide();
+    $('.card-st-type').hide();
     maximumOnly.hide();
     stOnly.hide();
     effOnly.hide();
@@ -41,11 +41,11 @@ $(document).ready(function(){
         //Change the monster type
         let monsterType = $('#monster-type').val();
         if (cardTypeSelected == "Spell"){
-            $('.card-type').html("Spell Card");
+            $('.card-type-1').html("Spell Card");
         } else if (cardTypeSelected == "Trap"){
-            $('.card-type').html("Trap Card");
+            $('.card-type-1').html("Trap Card");
         } else{
-            $('.card-type').html(monsterType);
+            $('.card-type-1').html(monsterType);
         }
         if (cardTypeSelected == "Normal"){
             $('.normal-monster-only').show();
@@ -108,9 +108,16 @@ $(document).ready(function(){
 
         if (cardTypeSelected == 'Spell' || cardTypeSelected == 'Trap'){
             if ($('#st-type option:selected').val() != 'Normal') {
-                $('#card-st-type').show();
-                $('#card-st-type').attr("src", "view/img/type" + $('#st-type option:selected').val() + ".png");
+                $('.card-type-1').addClass('p40');
+                $('.card-st-type').show();
+                $('.card-st-type').attr('src', 'view/img/type/' + $('#st-type option:selected').val() + '.png');
+            } else{
+                $('.card-st-type').hide();
+                $('.card-type-1').removeClass('p40');
             }
+        } else{
+            $('.card-st-type').hide();
+            $('.card-type-1').removeClass('p40');
         }
     });
     //Change card image

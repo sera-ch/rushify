@@ -204,6 +204,12 @@ body{
     left: 7%;
 }
 
+.card-st-type{
+    width: 4.5%;
+    top: 72.3%;
+    left: 28%;
+}
+
 .card-legend{
     top: 10.5%;
     left: 5.5%;
@@ -264,4 +270,14 @@ textarea.input{
 
 .rarity-rush{
     color: #e5e619 !important;
+}
+
+.card-type-1{
+    position:relative !important;
+    display: inline;
+    padding-right: 0px;
+}
+
+.card-type-1.p40{
+    padding-right: 40px;
 }
