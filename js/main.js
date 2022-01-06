@@ -9,6 +9,7 @@ $(document).ready(function(){
     var legend = $('.card-legend');
     var cardAttribute = $('.card-attribute')
     var maximumOnly = $('.maximum-only');
+    $('#card-st-type').hide();
     maximumOnly.hide();
     stOnly.hide();
     effOnly.hide();
@@ -104,6 +105,13 @@ $(document).ready(function(){
 
         //Change card set number
         $('.card-set-number').html($('#set-number').val());
+
+        if (cardTypeSelected == 'Spell' || cardTypeSelected == 'Trap'){
+            if ($('#st-type option:selected').val() != 'Normal') {
+                $('#card-st-type').show();
+                $('#card-st-type').attr("src", "view/img/type" + $('#st-type option:selected').val() + ".png");
+            }
+        }
     });
     //Change card image
     $('#image-url').change(function(){
