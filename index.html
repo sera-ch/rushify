@@ -13,6 +13,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <!--Trumbowyg-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js" integrity="sha512-t4CFex/T+ioTF5y0QZnCY9r5fkE8bMf9uoNH2HNSwsiTaMQMO0C9KbKPMvwWNdVaEO51nDL3pAzg4ydjWXaqbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="view/css/trumbowyg.min.css">
+    <!--HTML2Canvas-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js" integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--Custom js-->
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -30,11 +36,11 @@
                 <div class = "col-6 info">
                     Card type
                     <select class = "input" name = "ctype" id = "ctype">
-                        <option value = "normal" selected>Normal</option>
-                        <option value = "effect">Effect</option>
-                        <option value = "spell">Spell</option>
-                        <option value = "trap">Trap</option>
-                        <option value = "fusion">Fusion</option>
+                        <option value = "Normal" selected>Normal</option>
+                        <option value = "Effect">Effect</option>
+                        <option value = "Spell">Spell</option>
+                        <option value = "Trap">Trap</option>
+                        <option value = "Fusion">Fusion</option>
                     </select>
                 </div>
             </div>
@@ -55,12 +61,12 @@
                 <div class = "col-6 info">
                     Attribute
                     <select class = "input" name = "monster-type" id = "monster-attribute">
-                        <option value = "dark" selected>DARK</option>
-                        <option value = "light">LIGHT</option>
-                        <option value = "earth">EARTH</option>
-                        <option value = "wind">WIND</option>
-                        <option value = "water">WATER</option>
-                        <option value = "fire">FIRE</option>
+                        <option value = "DARK" selected>DARK</option>
+                        <option value = "LIGHT">LIGHT</option>
+                        <option value = "EARTH">EARTH</option>
+                        <option value = "WIND">WIND</option>
+                        <option value = "WATER">WATER</option>
+                        <option value = "FIRE">FIRE</option>
                     </select>
                 </div>
             </div>
@@ -143,21 +149,45 @@
                     <textarea class = "input" id = "card-text">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters, this monster boasts considerable force.</textarea>
                 </div>
             </div>
+            <div class = "row">
+                <div class = "info col-6">Creator</div>
+                <div class = "info col-6">Set number</div>
+            </div>
+            <div class = "row">
+                <div class = "info col-6">
+                        <input class = "input" type = "text" maxlength="20" value="Jibril" id = "creator">
+                </div>
+                <div class = "info col-6">
+                    <div class = "col-6 padding-5">
+                        <input class = "input" type = "text" id = "set-number" maxlength="15" value="20220101">
+                    </div>
+                    <div class = "col-6 padding-5">
+                        <button class = "btn btn-primary input" id = "random-generate">Generate</button>
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-4"></div>
+                <div class = "info col-4">
+                    <button class = "input btn btn-primary" id = "save">Save</button>
+                </div>
+                <div class = "col-4"></div>
+            </div>
         </div>
         <!-- Area to display the card -->
-        <div class = "col-6">
-            <div class = "display-card">
+        <div class = "col-6" id = "display">
+            <div class = "display-card" id = "display-card">
                 <img src = "view/img/image/image.png" class = "card-image">
                 <img src = "view/img/frame/Normal.png" class = "card-frame">
                 <img src = "view/img/attribute/DARK.png" class = "card-attribute">
                 <p class = "card-name rarity-rush">Summoned Skull</p>
                 <img src = "view/img/stat/Stats.png" class = "card-stats monster-only">
                 <img src = "view/img/stat/Maximum.png" class = "card-maximum monster-only maximum-only">
-                <p class = "card-max-atk rarity-rush monster-only maximum-only">4000</p>
+                <p class = "card-max-atk monster-only maximum-only">4000</p>
                 <img src = "view/img/stat/level-6.png" class = "card-level monster-only level-only">
                 <p class = "card-atk rarity-rush monster-only">2500</p>
                 <p class = "card-def rarity-rush monster-only">1200</p>
-                <p class = "card-type">Fiend/Normal</p>
+                <div class = "card-type">Fiend/Normal</div>
                 <div class = "card-lore normal-monster-only">
                     <p class = "lore">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters,
                         this monster boasts considerable force.</p>
@@ -166,7 +196,13 @@
                     <p class = "lore">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters,
                         this monster boasts considerable force.</p>
                 </div>
-                <img src = "view/img/stat/legend.png" class = "card-legend">
+                <img src = "view/img/stat/Legend.png" class = "card-legend">
+                <div class = "card-creator">
+                    Jibril
+                </div>
+                <div class = "card-set-number">
+                    20220101
+                </div>
             </div>
         </div>
     </div>

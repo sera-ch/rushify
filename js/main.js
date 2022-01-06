@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$('#card-text').trumbowyg();
+
     var monsterOnly = $('.monster-only');
     var stOnly = $('.st-only');
     var effOnly = $('.effect-monster-only');
@@ -18,7 +20,7 @@ $(document).ready(function(){
         }
         //Show monster card or spell/trap card info input depending on player selection
         let cardTypeSelected = $('#ctype option:selected').val();
-        if (cardTypeSelected == "normal" || cardTypeSelected == "effect" || cardTypeSelected == "fusion"){
+        if (cardTypeSelected == "Normal" || cardTypeSelected == "Effect" || cardTypeSelected == "Fusion"){
             stOnly.hide();
             monsterOnly.show();
         } else{
@@ -28,23 +30,23 @@ $(document).ready(function(){
         //Change the card frame
         $('.card-frame').attr('src', 'view/img/frame/' + cardTypeSelected + '.png');
         //Change the attribute
-        if (cardTypeSelected == "spell"){
+        if (cardTypeSelected == "Spell"){
             cardAttribute.attr('src', 'view/img/attribute/SPELL.png');
-        } else if (cardTypeSelected == "trap"){
+        } else if (cardTypeSelected == "Trap"){
             cardAttribute.attr('src', 'view/img/attribute/TRAP.png');
         } else{
             cardAttribute.attr('src', 'view/img/attribute/' + $('#monster-attribute option:selected').val() + '.png');
         }
         //Change the monster type
         let monsterType = $('#monster-type').val();
-        if (cardTypeSelected == "spell"){
+        if (cardTypeSelected == "Spell"){
             $('.card-type').html("Spell Card");
-        } else if (cardTypeSelected == "trap"){
+        } else if (cardTypeSelected == "Trap"){
             $('.card-type').html("Trap Card");
         } else{
             $('.card-type').html(monsterType);
         }
-        if (cardTypeSelected == "normal"){
+        if (cardTypeSelected == "Normal"){
             $('.normal-monster-only').show();
             $('.effect-monster-only').hide();
         } else{
@@ -54,29 +56,31 @@ $(document).ready(function(){
         //Change the monster level
         $('.card-level').attr('src', 'view/img/stat/Level-' + $('#level').val() + '.png');
         //Change the atk/def
-        if (cardTypeSelected != "spell" && cardTypeSelected != "trap"){
+        if (cardTypeSelected != "Spell" && cardTypeSelected != "Trap"){
             $('.card-atk').html($('#atk').val());
             $('.card-def').html($('#def').val());
+            $('.card-atk-rush').html($('#atk').val());
+            $('.card-def-rush').html($('#def').val());
         }
         //Enable Maximum ATK input
-        if (cardTypeSelected != "spell" && cardTypeSelected != "trap" && $('#maximum').is(":checked")){
+        if (cardTypeSelected != "Spell" && cardTypeSelected != "Trap" && $('#maximum').is(":checked")){
             $('#maximum-atk').removeAttr('disabled');
-            maximumOnly.show();
+            $('.maximum-only').show();
         } else{
             $('#maximum-atk').attr('disabled', 'disabled');
-            maximumOnly.hide();
+            $('.maximum-only').hide();
         }
         //Change monster stats
-        if (cardTypeSelected != "spell" && cardTypeSelected != "trap"){
+        if (cardTypeSelected != "Spell" && cardTypeSelected != "Trap"){
             $('.card-atk').html($('#atk').val());
             $('.card-def').html($('#def').val());
             if ($('#maximum').is(':checked')){
                 $('.card-max-atk').html($('#maximum-atk').val());
+                $('.card-max-atk-rush').html($('#maximum-atk').val());
             }
         }
         //Change rarities
         let rarity = $('#rarity option:selected').val();
-        console.log(rarity);
         if (rarity == "common"){
             $('.card-name').removeClass('rarity-rush');
             $('.card-atk').removeClass('rarity-rush');
@@ -93,11 +97,25 @@ $(document).ready(function(){
             }
         }
         //Change card text
-        $('.card-lore').html($('#card-text').val());
+        $('.card-lore').html($('.trumbowyg-editor').html());
+
+        //Change card creator
+        $('.card-creator').html($('#creator').val());
+
+        //Change card set number
+        $('.card-set-number').html($('#set-number').val());
     });
     //Change card image
     $('#image-url').change(function(){
         $(".card-image").attr("src", $("#image-url").val());
+    });
+    $('.trumbowyg-editor').keyup(function(){
+        //Change card text
+        $('.card-lore').html($('.trumbowyg-editor').html());
+    });
+    $('.trumbowyg-editor').focusout(function(){
+        //Change card text
+        $('.card-lore').html($('.trumbowyg-editor').html());
     });
     //Show or hide the LEGEND icon
     $('#legend').change(function(){
@@ -129,4 +147,40 @@ $(document).ready(function(){
     $("#upload-btn").click(function(){
     	$("#upload-img").click();
     });
+    $('#random-generate').click(function(){
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 4; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        result += "-";
+        for ( var i = 0; i < 5; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        $('#set-number').val(result);
+        //Change card set number
+        $('.card-set-number').html(result);
+    });
+    $('#save').click(function(){
+        let div = $('#display-card')[0];
+        html2canvas(div, {allowTaint:true, useCORS:true}).then(
+        function (canvas) {
+            $('#canvas').html(canvas);
+            saveAs(canvas.toDataURL(), $('#set-number').val() + '-' + $('#card-name').val() + '.png');
+        })
+    });
+
+    function saveAs(uri, filename){
+        var link = document.createElement('a');
+        if (typeof link.download === 'string') {
+            link.href = uri;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            window.open(uri);
+        }
+    }
 });
