@@ -110,9 +110,14 @@ body{
     font-family: CardName;
     font-size: 600%;
     white-space: nowrap;
-    width: 80%;
+    width: 79%;
     padding: 0% 2% 0% 2%;
-    width: auto;
+    text-align: left;
+}
+
+.card-name-1{
+    text-align: left;
+    left: 20px;
 }
 
 .card-stats{

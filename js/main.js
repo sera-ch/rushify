@@ -17,7 +17,8 @@ $(document).ready(function(){
         let cardName = $('#card-name').val();
         //Change the card name
         if (cardName != ""){
-            $('.card-name').html(cardName);
+            $('.card-name-1').html(cardName);
+            resizeToFit($('.card-name-1'), $('.card-name'));
         }
         //Show monster card or spell/trap card info input depending on player selection
         let cardTypeSelected = $('#ctype option:selected').val();
@@ -197,5 +198,21 @@ $(document).ready(function(){
         } else {
             window.open(uri);
         }
+    }
+
+    function resizeToFit(text, div){
+        var larger = text.width() > div.width();
+        console.log(div);
+        console.log(text);
+        console.log(text.width());
+        console.log(div.width());
+        console.log(larger);
+        if (larger){
+            scale = div.width() / text.width();
+        } else{
+            scale = 1;
+        }
+        text.css('transform', 'scale(' + scale + ', 1)');
+        text.css('transform-origin', 'top left');
     }
 });
