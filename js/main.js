@@ -9,16 +9,26 @@ $(document).ready(function(){
     var legend = $('.card-legend');
     var cardAttribute = $('.card-attribute')
     var maximumOnly = $('.maximum-only');
+
+    let cardTypeSelected = $('#ctype option:selected').val();
+    if (cardTypeSelected == 'Normal'){
+        $('.lore').css('font-family', 'CardLore');
+    } else{
+        $('.lore').css('font-family', 'CardEffect');
+    }
+
     $('.card-st-type').hide();
     maximumOnly.hide();
     stOnly.hide();
     effOnly.hide();
+    squeezeToFit($('.card-name-1'), $('.card-name'));
+    resizeToFit($('.lore'), $('.card-lore'));
     $('.input').change(function(){
         let cardName = $('#card-name').val();
         //Change the card name
         if (cardName != ""){
             $('.card-name-1').html(cardName);
-            resizeToFit($('.card-name-1'), $('.card-name'));
+            squeezeToFit($('.card-name-1'), $('.card-name'));
         }
         //Show monster card or spell/trap card info input depending on player selection
         let cardTypeSelected = $('#ctype option:selected').val();
@@ -47,13 +57,6 @@ $(document).ready(function(){
             $('.card-type-1').html("Trap Card");
         } else{
             $('.card-type-1').html(monsterType);
-        }
-        if (cardTypeSelected == "Normal"){
-            $('.normal-monster-only').show();
-            $('.effect-monster-only').hide();
-        } else{
-            $('.normal-monster-only').hide();
-            $('.effect-monster-only').show();
         }
         //Change the monster level
         $('.card-level').attr('src', 'view/img/stat/Level-' + $('#level').val() + '.png');
@@ -84,12 +87,12 @@ $(document).ready(function(){
         //Change rarities
         let rarity = $('#rarity option:selected').val();
         if (rarity == "common"){
-            $('.card-name').removeClass('rarity-rush');
+            $('.card-name-1').removeClass('rarity-rush');
             $('.card-atk').removeClass('rarity-rush');
             $('.card-def').removeClass('rarity-rush');
         } else{
-            if (!$('.card-name').hasClass('rarity-rush')){
-                $('.card-name').addClass('rarity-rush');
+            if (!$('.card-name-1').hasClass('rarity-rush')){
+                $('.card-name-1').addClass('rarity-rush');
             }
             if (!$('.card-atk').hasClass('rarity-rush')){
                 $('.card-atk').addClass('rarity-rush');
@@ -98,8 +101,6 @@ $(document).ready(function(){
                 $('.card-def').addClass('rarity-rush');
             }
         }
-        //Change card text
-        $('.card-lore').html($('.trumbowyg-editor').html());
 
         //Change card creator
         $('.card-creator').html($('#creator').val());
@@ -120,6 +121,11 @@ $(document).ready(function(){
             $('.card-st-type').hide();
             $('.card-type-1').removeClass('p40');
         }
+        if (cardTypeSelected == 'Normal'){
+            $('.lore').css('font-family', 'CardLore');
+        } else{
+            $('.lore').css('font-family', 'CardEffect');
+        }
     });
     //Change card image
     $('#image-url').change(function(){
@@ -127,11 +133,13 @@ $(document).ready(function(){
     });
     $('.trumbowyg-editor').keyup(function(){
         //Change card text
-        $('.card-lore').html($('.trumbowyg-editor').html());
+        $('.lore').html($('.trumbowyg-editor').html());
+        resizeToFit($('.lore'), $('.card-lore'));
     });
     $('.trumbowyg-editor').focusout(function(){
         //Change card text
-        $('.card-lore').html($('.trumbowyg-editor').html());
+        $('.lore').html($('.trumbowyg-editor').html());
+        resizeToFit($('.lore'), $('.card-lore'));
     });
     //Show or hide the LEGEND icon
     $('#legend').change(function(){
@@ -200,19 +208,28 @@ $(document).ready(function(){
         }
     }
 
-    function resizeToFit(text, div){
+    function squeezeToFit(text, div){
         var larger = text.width() > div.width();
-        console.log(div);
-        console.log(text);
         console.log(text.width());
         console.log(div.width());
-        console.log(larger);
         if (larger){
             scale = div.width() / text.width();
+        console.log(scale);
         } else{
             scale = 1;
         }
         text.css('transform', 'scale(' + scale + ', 1)');
         text.css('transform-origin', 'top left');
     }
+
+    function resizeToFit(text, div){
+        var larger = text.height() > div.height();
+        if (larger){
+            textFit(div);
+            text.css('font-size', 'auto');
+        } else{
+            text.css('font-size', '100%');
+        }
+    }
+
 });

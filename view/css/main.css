@@ -108,14 +108,14 @@ body{
     top: -0.5%;
     left: 3%;
     font-family: CardName;
-    font-size: 600%;
     white-space: nowrap;
-    width: 79%;
+    width: 640px;
     padding: 0% 2% 0% 2%;
     text-align: left;
 }
 
 .card-name-1{
+    font-size: 600%;
     text-align: left;
     left: 20px;
 }
@@ -176,7 +176,8 @@ body{
     right: 18%;
 }
 
-.card-lore{
+.card-lore,
+.card-effect{
     font-size: 170%;
     margin: 6%;
     top: 72%;
@@ -190,8 +191,13 @@ body{
     font-family: CardLore;
 }
 
-.card-lore.effect-monster-only{
+.card-effect.effect-monster-only{
     font-family: CardEffect;
+}
+
+.lore,
+.effect{
+    height: fit-content;
 }
 
 .card-type::before{

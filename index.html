@@ -12,8 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <!--Trumbowyg-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js" integrity="sha512-vLs5rAqfvmv/IpN7JustROkGAvjK/L+vgVDFe7KpdtLztqF8mZDfleK2MZj/xuOrWjma0pW+lPCMcBbPKJVC7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <!--Trumbowyg-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js" integrity="sha512-t4CFex/T+ioTF5y0QZnCY9r5fkE8bMf9uoNH2HNSwsiTaMQMO0C9KbKPMvwWNdVaEO51nDL3pAzg4ydjWXaqbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="view/css/trumbowyg.min.css">
     <!--HTML2Canvas-->
@@ -31,16 +31,16 @@
                 <!-- Card name and type -->
                 <div class = "col-6 info">
                     Card name
-                    <input class = "input" type = "text" maxlength="50" placeholder="Card name" id = "card-name" value = "Summoned Skull">
+                    <input class = "input" type = "text" maxlength="50" placeholder="Card name" id = "card-name" value = "Lunalight Leo Dancer">
                 </div>
                 <div class = "col-6 info">
                     Card type
                     <select class = "input" name = "ctype" id = "ctype">
-                        <option value = "Normal" selected>Normal</option>
+                        <option value = "Normal">Normal</option>
                         <option value = "Effect">Effect</option>
                         <option value = "Spell">Spell</option>
                         <option value = "Trap">Trap</option>
-                        <option value = "Fusion">Fusion</option>
+                        <option value = "Fusion" selected>Fusion</option>
                     </select>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                 <!-- Type and Attribute -->
                 <div class = "col-6 info">
                     Monster type
-                    <input class = "input" type = "text" maxlength="50" placeholder="Monster type" value = "Fiend/Normal" id = "monster-type">
+                    <input class = "input" type = "text" maxlength="50" placeholder="Monster type" value = "Beast-Warrior/Fusion/Effect" id = "monster-type">
                 </div>
                 <div class = "col-6 info">
                     Attribute
@@ -91,17 +91,17 @@
                         Level:
                     </div>
                     <div class = "col-6">
-                        <input type = "number" class = "input" max = "12" min = "1" placeholder = "Level" value = "6" id = "level">
+                        <input type = "number" class = "input" max = "12" min = "1" placeholder = "Level" value = "10" id = "level">
                     </div>
                 </div>
                 <div class = "col-6 info">
                     <div class = "col-3 text-right info">ATK / </div>
                     <div class = "col-3">
-                        <input class = "input atk" type = "number" max = "99999" min = "0" value = "2500" placeholder="ATK" id = "atk">
+                        <input class = "input atk" type = "number" max = "99999" min = "0" value = "3500" placeholder="ATK" id = "atk">
                     </div>
                     <div class = "col-3 text-right info">DEF / </div>
                     <div class = "col-3">
-                        <input class = "input def" type = "number" max = "99999" min = "0" value = "1200" placeholder="DEF" id = "def">
+                        <input class = "input def" type = "number" max = "99999" min = "0" value = "3000" placeholder="DEF" id = "def">
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                     ImageURL:
                 </div>
                 <div class = "info col-7">
-                    <input class = "input" type = "text" id = "image-url" value = "https://i.ibb.co/PwVKhdY/image.png">
+                    <input class = "input" type = "text" id = "image-url" value = "https://i.ibb.co/hCKmy7W/lunalight-leo-dancer-by-yugi-master-davfirn-fullview.png">
                 </div>
                 <div class = "info col-3">
                     <input type = "file" accept = "image/*" id = "upload-img" class = "d-none" data-max-size = "2000">
@@ -145,7 +145,7 @@
             <div class = "row">
                 <div class = "info col-12">
                     Card text:
-                    <textarea class = "input" id = "card-text">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters, this monster boasts considerable force.</textarea>
+                    <textarea class = "input" id = "card-text"><p><strong>[REQUIREMENT]&nbsp;</strong><br>None<br><strong>[MULTI-CHOICE EFFECT]</strong><br>● Destroy all monsters your opponent controls.<br>● This turn, this card can attack twice.</p></textarea>
                 </div>
             </div>
             <div class = "row">
@@ -176,27 +176,24 @@
         <!-- Area to display the card -->
         <div class = "col-6" id = "display">
             <div class = "display-card" id = "display-card">
-                <img src = "view/img/image/image.png" class = "card-image">
-                <img src = "view/img/frame/Normal.png" class = "card-frame">
+                <img src = "https://i.ibb.co/hCKmy7W/lunalight-leo-dancer-by-yugi-master-davfirn-fullview.png" class = "card-image">
+                <img src = "view/img/frame/Fusion.png" class = "card-frame">
                 <img src = "view/img/attribute/DARK.png" class = "card-attribute">
                 <div class = "card-name">
-                    <div class = "card-name-1 rarity-rush">Summoned Skull</div>
+                    <div class = "card-name-1 rarity-rush">Lunalight Leo Dancer</div>
                 </div>
                 <img src = "view/img/stat/Stats.png" class = "card-stats monster-only">
                 <img src = "view/img/stat/Maximum.png" class = "card-maximum monster-only maximum-only">
                 <p class = "card-max-atk monster-only maximum-only">4000</p>
-                <img src = "view/img/stat/Level-6.png" class = "card-level monster-only level-only">
-                <p class = "card-atk rarity-rush monster-only">2500</p>
-                <p class = "card-def rarity-rush monster-only">1200</p>
-                <div class = "card-type"><span class = "card-type-1">Fiend/Normal</span></div>
+                <img src = "view/img/stat/Level-10.png" class = "card-level monster-only level-only">
+                <p class = "card-atk rarity-rush monster-only">3500</p>
+                <p class = "card-def rarity-rush monster-only">3000</p>
+                <div class = "card-type"><span class = "card-type-1">Beast-Warrior/Fusion/Effect</span></div>
                 <img class = "card-st-type" src = "view/img/type/Field.png">
                 <div class = "card-lore normal-monster-only">
-                    <p class = "lore">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters,
-                        this monster boasts considerable force.</p>
-                </div>
-                <div class = "card-lore effect-monster-only">
-                    <p class = "lore">A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters,
-                        this monster boasts considerable force.</p>
+                    <div class = "lore">
+                        <p><strong>[REQUIREMENT]&nbsp;</strong><br>None<br><strong>[MULTI-CHOICE EFFECT]</strong><br>● Destroy all monsters your opponent controls.<br>● This turn, this card can attack twice.</p>
+                    </div>
                 </div>
                 <img src = "view/img/stat/Legend.png" class = "card-legend">
                 <div class = "card-creator">
