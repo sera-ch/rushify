@@ -176,7 +176,8 @@ body{
     right: 18%;
 }
 
-.card-lore{
+.card-lore,
+.card-effect{
     font-size: 170%;
     margin: 6%;
     top: 72%;
@@ -190,8 +191,13 @@ body{
     font-family: CardLore;
 }
 
-.card-lore.effect-monster-only{
+.card-effect.effect-monster-only{
     font-family: CardEffect;
+}
+
+.lore,
+.effect{
+    height: fit-content;
 }
 
 .card-type::before{
