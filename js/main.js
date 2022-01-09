@@ -9,6 +9,8 @@ $(document).ready(function(){
     var legend = $('.card-legend');
     var cardAttribute = $('.card-attribute')
     var maximumOnly = $('.maximum-only');
+    $('.progress').hide();
+    $('#progress-text').hide();
 
     let cardTypeSelected = $('#ctype option:selected').val();
     if (cardTypeSelected == 'Normal'){
@@ -23,6 +25,7 @@ $(document).ready(function(){
     effOnly.hide();
     squeezeToFit($('.card-name-1'), $('.card-name'));
     resizeToFit($('.lore'), $('.card-lore'));
+
     $('.input').change(function(){
         let cardName = $('#card-name').val();
         //Change the card name
@@ -90,6 +93,7 @@ $(document).ready(function(){
             $('.card-name-1').removeClass('rarity-rush');
             $('.card-atk').removeClass('rarity-rush');
             $('.card-def').removeClass('rarity-rush');
+            $('.card-max-atk').removeClass('rarity-rush');
         } else{
             if (!$('.card-name-1').hasClass('rarity-rush')){
                 $('.card-name-1').addClass('rarity-rush');
@@ -99,6 +103,9 @@ $(document).ready(function(){
             }
             if (!$('.card-def').hasClass('rarity-rush')){
                 $('.card-def').addClass('rarity-rush');
+            }
+            if (!$('.card-max-atk').hasClass('rarity-rush')){
+                $('.card-max-atk').addClass('rarity-rush');
             }
         }
 
@@ -171,6 +178,9 @@ $(document).ready(function(){
     $("#upload-btn").click(function(){
     	$("#upload-img").click();
     });
+    $("#upload-file-btn").click(function(){
+    	$("#upload-file").click();
+    });
     $('#random-generate').click(function(){
         var result           = '';
         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -191,7 +201,7 @@ $(document).ready(function(){
         html2canvas(div, {allowTaint:true, useCORS:true}).then(
         function (canvas) {
             $('#canvas').html(canvas);
-            saveAs(canvas.toDataURL(), $('#set-number').val() + '-' + $('#card-name').val() + '.png');
+            saveAs(canvas.toDataURL(), $('#set-number').val() + '.png');
         })
     });
 
@@ -210,11 +220,8 @@ $(document).ready(function(){
 
     function squeezeToFit(text, div){
         var larger = text.width() > div.width();
-        console.log(text.width());
-        console.log(div.width());
         if (larger){
             scale = div.width() / text.width();
-        console.log(scale);
         } else{
             scale = 1;
         }
