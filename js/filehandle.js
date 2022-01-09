@@ -23,7 +23,7 @@ $(document).ready(function(){
                     $('#ctype option:selected').val(data.cards[i]["Card type"]);
                     $('#card-name').val(data.cards[i].Name);
                     $('#legend')[0].checked = data.cards[i].Legend;
-                    $('#st-type option:selected').val(data.cards[i]["S/T Type"]);
+                    $('#st-type option:selected').val(data.cards[i]["S/T type"]);
                     $('#monster-type').val(data.cards[i]["Monster type"]);
                     $('#monster-attribute option:selected').val(data.cards[i]["Attribute"]);
                     $('#level').val(data.cards[i].Level);
@@ -37,9 +37,10 @@ $(document).ready(function(){
                     $('.trumbowyg-editor').html(data.cards[i]["Card text"]);
                     $('.trumbowyg-editor').keyup();
                     $('#card-name').change();
+                    $('#st-type').change();
                     $('#image-url').change();
                     $('#legend').change();
-                    saveCard();
+                    saveCard(data.cards[i]["Set No."]);
                     loop(i+1);
                 });
             })(0);
@@ -79,13 +80,13 @@ $(document).ready(function(){
         return jsonObj;
     }
 
-    function saveCard(){
+    function saveCard(name){
         let div = $('#display-card')[0];
         $('#display-card').ready(function(){
             html2canvas(div, {allowTaint:true, useCORS:true}).then(
             function (canvas) {
                 $('#canvas').html(canvas);
-                saveAs(canvas.toDataURL(), $('#set-number').val() + '.png');
+                saveAs(canvas.toDataURL(), name + '.png');
             })
         });
     }
