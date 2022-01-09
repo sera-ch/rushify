@@ -18,7 +18,7 @@ $(document).ready(function(){
                 }
                 $('#progress-text').html('Processing ' + data.cards[i].Name);
                 $('#progress-bar').css('width', ((i + 1) * 100) / data.numberOfCards + "%");
-                delay(1000).then(() => {
+                delay(2000).then(() => {
                     $('#set-number').val(data.cards[i]["Set No."]);
                     $('#ctype option:selected').val(data.cards[i]["Card type"]);
                     $('#card-name').val(data.cards[i].Name);
