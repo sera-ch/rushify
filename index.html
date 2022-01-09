@@ -13,13 +13,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js" integrity="sha512-vLs5rAqfvmv/IpN7JustROkGAvjK/L+vgVDFe7KpdtLztqF8mZDfleK2MZj/xuOrWjma0pW+lPCMcBbPKJVC7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   <!--Trumbowyg-->
+    <!--Trumbowyg-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js" integrity="sha512-t4CFex/T+ioTF5y0QZnCY9r5fkE8bMf9uoNH2HNSwsiTaMQMO0C9KbKPMvwWNdVaEO51nDL3pAzg4ydjWXaqbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="view/css/trumbowyg.min.css">
     <!--HTML2Canvas-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js" integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--Custom js-->
     <script src="js/main.js"></script>
+    <script src="js/filehandle.js"></script>
+    <!--XLSX-->
+    <script src="//cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 </head>
 <body>
     <header>
@@ -171,6 +174,25 @@
                     <button class = "input btn btn-primary" id = "save">Save</button>
                 </div>
                 <div class = "col-4"></div>
+            </div>
+            <div class = "row">
+                <div class = "info col-12">
+                    Batch create (BETA):<br>
+                    Please allow multiple file download.<br>
+                    <a href = "asset/rush_duel_card_maker_batch_template_0.01.xlsx">Get template</a>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-6">
+                    <input type = "text" class = "input" id = "file-input" disabled>
+                </div>
+                <div class = "col-3">
+                    <input type = "file" class = "d-none" accept = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" id = "upload-file" data-max-size = "2000">
+                    <button class = "input btn btn-primary" id = "upload-file-btn">Upload file</button>
+                </div>
+                <div class = "col-3">
+                    <button class = "input btn btn-primary" id = "batch-create-btn">Batch create</button>
+                </div>
             </div>
         </div>
         <!-- Area to display the card -->
