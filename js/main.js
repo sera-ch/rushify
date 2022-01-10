@@ -117,16 +117,22 @@ $(document).ready(function(){
 
         if (cardTypeSelected == 'Spell' || cardTypeSelected == 'Trap'){
             if ($('#st-type option:selected').val() != 'Normal') {
-                $('.card-type-1').addClass('p40');
+                if (cardTypeSelected == 'Spell'){
+                    $('.card-type-1').addClass('p40');
+                } else{
+                    $('.card-type-1').addClass('p50');
+                }
                 $('.card-st-type').show();
                 $('.card-st-type').attr('src', 'view/img/type/' + $('#st-type option:selected').val() + '.png');
             } else{
                 $('.card-st-type').hide();
                 $('.card-type-1').removeClass('p40');
+                $('.card-type-1').removeClass('p50');
             }
         } else{
             $('.card-st-type').hide();
             $('.card-type-1').removeClass('p40');
+            $('.card-type-1').removeClass('p50');
         }
         if (cardTypeSelected == 'Normal'){
             $('.lore').css('font-family', 'CardLore');

@@ -14,6 +14,33 @@ body{
     display: none;
 }
 
+header{
+    padding: 30px;
+}
+
+.banner{
+    font-family: Interceptor;
+    text-align:center;
+    top: 50%;
+    position: relative;
+}
+
+.banner-top,
+.banner-bottom{
+    position: absolute;
+    width: 100%;
+    font-size: 3vw;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,241,194,1) 12%, rgba(253,220,49,1) 33%, rgba(253,220,49,1) 54%, rgba(253,172,49,1) 56%, rgba(253,220,49,1) 58%, rgba(253,172,49,1) 61%, rgba(253,220,49,1) 64%, rgba(253,172,49,1) 69%, rgba(253,220,49,1) 63%, rgba(253,172,49,1) 78%, rgba(253,172,49,1) 100%);
+    -webkit-background-clip: text;
+}
+.banner-bottom{
+    left: 5px;
+    top:5px;
+    background: black;
+    -webkit-background-clip: text;
+}
+
 .text-right{
     text-align: right;
 }
@@ -48,12 +75,17 @@ body{
     src: url("../font/StoneSerifStd-Semibold.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "Interceptor";
+    src: url("../font/Interceptor Italic.otf") format("opentype");
+}
+
 [class*="col-"]{
 	float: left;
 	width: 100%;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
 	/* For desktop: */
 	.col-1 {width: 8.33%;}
 	.col-2 {width: 16.66%;}
@@ -295,6 +327,10 @@ textarea.input{
 
 .card-type-1.p40{
     padding-right: 40px;
+}
+
+.card-type-1.p50{
+    padding-right: 50px;
 }
 
 .img-magnifier-glass {
