@@ -319,6 +319,11 @@ textarea.input{
     color: #e5e619 !important;
 }
 
+.info h2{
+    font-size: 110%;
+    font-weight: normal;
+}
+
 .card-type-1{
     position:relative !important;
     display: inline;
