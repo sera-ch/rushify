@@ -2,6 +2,8 @@ Changelog:
 
 2022/01/10:
 - Fixed a bug where Field Spells are not properly generated from batch create
+- Added banner and new name
+- Various bugfixes
 
 2022/01/09:
 - Implemented batch create
