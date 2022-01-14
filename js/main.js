@@ -62,13 +62,18 @@ $(document).ready(function(){
             $('.card-type-1').html(monsterType);
         }
         //Change the monster level
-        $('.card-level').attr('src', 'view/img/stat/Level-' + $('#level').val() + '.png');
+        let level = $('#level').val() > 12 ? 12 : ($('#level').val() < 1 ? 1 : $('#level').val());
+        $('.card-level').attr('src', 'view/img/stat/Level-' + level + '.png');
         //Change the atk/def
         if (cardTypeSelected != "Spell" && cardTypeSelected != "Trap"){
-            $('.card-atk').html($('#atk').val());
-            $('.card-def').html($('#def').val());
-            $('.card-atk-rush').html($('#atk').val());
-            $('.card-def-rush').html($('#def').val());
+            $('.card-atk').html($('#atk').val() < 0 ? 0 : $('#atk').val());
+            $('.card-def').html($('#def').val() < 0 ? 0 : $('#def').val());
+            $('.card-atk-rush').html($('#atk').val() < 0 ? 0 : $('#atk').val());
+            $('.card-def-rush').html($('#def').val() < 0 ? 0 : $('#def').val());
+            if ($('#maximum').is(':checked')){
+                $('.card-max-atk').html($('#maximum-atk').val() < 0 ? 0 : $('#maximum-atk').val());
+                $('.card-max-atk-rush').html($('#maximum-atk').val() < 0 ? 0 : $('#maximum-atk').val());
+            }
         }
         //Enable Maximum ATK input
         if (cardTypeSelected != "Spell" && cardTypeSelected != "Trap" && $('#maximum').is(":checked")){
@@ -77,15 +82,6 @@ $(document).ready(function(){
         } else{
             $('#maximum-atk').attr('disabled', 'disabled');
             $('.maximum-only').hide();
-        }
-        //Change monster stats
-        if (cardTypeSelected != "Spell" && cardTypeSelected != "Trap"){
-            $('.card-atk').html($('#atk').val());
-            $('.card-def').html($('#def').val());
-            if ($('#maximum').is(':checked')){
-                $('.card-max-atk').html($('#maximum-atk').val());
-                $('.card-max-atk-rush').html($('#maximum-atk').val());
-            }
         }
         //Change rarities
         let rarity = $('#rarity option:selected').val();

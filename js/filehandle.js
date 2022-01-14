@@ -22,16 +22,16 @@ $(document).ready(function(){
                     $('#set-number').val(data.cards[i]["Set No."]);
                     $('#ctype option:selected').val(data.cards[i]["Card type"]);
                     $('#card-name').val(data.cards[i].Name);
-                    $('#legend')[0].checked = data.cards[i].Legend;
-                    $('#st-type option:selected').val(data.cards[i]["S/T type"]);
-                    $('#monster-type').val(data.cards[i]["Monster type"]);
-                    $('#monster-attribute option:selected').val(data.cards[i]["Attribute"]);
-                    $('#level').val(data.cards[i].Level);
-                    $('#atk').val(data.cards[i].ATK);
-                    $('#def').val(data.cards[i].DEF);
-                    $('#maximum').prop('checked', data.cards[i].Maximum);
-                    $('#maximum-atk').val(data.cards[i]["Maximum ATK"]);
-                    $('#rarity option:selected').val(data.cards[i].Rarity)
+                    $('#legend')[0].checked = data.cards[i].Legend ? data.cards[i].Legend : false;
+                    $('#st-type option:selected').val(data.cards[i]["S/T type"] ? data.cards[i]["S/T type"] : 'Normal');
+                    $('#monster-type').val(data.cards[i]["Monster type"] ? data.cards[i]["Monster type"] : '');
+                    $('#monster-attribute option:selected').val(data.cards[i]["Attribute"] ? data.cards[i]["Attribute"] : 'DARK');
+                    $('#level').val(data.cards[i].Level ? data.cards[i].Level : 1);
+                    $('#atk').val(data.cards[i].ATK ? data.cards[i].ATK : 0);
+                    $('#def').val(data.cards[i].DEF ? data.cards[i].DEF : 0);
+                    $('#maximum').prop('checked', data.cards[i].Maximum ? data.cards[i].Maximum : false);
+                    $('#maximum-atk').val(data.cards[i]["Maximum ATK"] ? data.cards[i]["Maximum ATK"] : 0);
+                    $('#rarity option:selected').val(data.cards[i].Rarity ? data.cards[i].Rarity : 'Common')
                     $('#image-url').val(data.cards[i]["Image URL"]);
                     $('#creator').val(data.cards[i].Creator);
                     $('.trumbowyg-editor').html(data.cards[i]["Card text"]);
@@ -69,7 +69,7 @@ $(document).ready(function(){
             for (let i = 0; i < 16; i++){
                 address_of_cell = columns[i] + row;
                 desired_cell = worksheet[address_of_cell];
-                desired_value = desired_cell.v;
+                desired_value = desired_cell ? desired_cell.v : undefined;
                 var columnName = worksheet[columns[i] + '1'].v;
                 item[columnName] = desired_value;
             }
