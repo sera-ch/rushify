@@ -4,6 +4,7 @@ Changelog:
 - Fixed an issue where out of range Level generates invalid images
 - Fixed an issue where it is possible to have negative ATK/DEF values
 - Removed redundant codes
+- Removed the need to fill out irrelevant fields in template
 - Various bugfixes
 
 2022/01/10:
