@@ -22,5 +22,5 @@ Changelog:
 2022/01/05:
 - Initial release
 
-Card maker for Rush Duel cards with batch create
-made by Mai Kim
+Rushify is a lightweight card maker for Rush Duel cards with batch create feature. 
+I do not own the images. Yu-Gi-Oh! and Yu-Gi-Oh! Rush Duel are properties of Konami.
