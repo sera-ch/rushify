@@ -1,5 +1,11 @@
 Changelog:
 
+2022/01/14:
+- Fixed an issue where out of range Level generates invalid images
+- Fixed an issue where it is possible to have negative ATK/DEF values
+- Removed redundant codes
+- Various bugfixes
+
 2022/01/10:
 - Fixed a bug where Field Spells are not properly generated from batch create
 - Added banner and new name
