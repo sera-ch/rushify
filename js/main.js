@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+  $('.card-lore.normal-monster-only').width($('.card-stats.monster-only').width()*0.99);
+  $('.card-lore.normal-monster-only').height();
 	$('#card-text').trumbowyg();
 
     var monsterOnly = $('.monster-only');
@@ -18,9 +21,6 @@ $(document).ready(function(){
     } else{
         $('.lore').css('font-family', 'CardEffect');
     }
-
-    $('.card-lore.normal-monster-only').width($('.card-stats.monster-only').width());
-    $('.card-lore.normal-monster-only').height()
 
     $('.card-st-type').hide();
     maximumOnly.hide();
