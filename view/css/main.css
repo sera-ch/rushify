@@ -41,6 +41,11 @@ header{
     -webkit-background-clip: text;
 }
 
+.lore p{
+    width: 100px;
+    height: 100px;
+}
+
 .text-right{
     text-align: right;
 }
@@ -225,8 +230,8 @@ header{
 
 .card-lore.normal-monster-only{
     font-family: CardLore;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
 }
 
 .card-effect.effect-monster-only{
