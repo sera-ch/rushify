@@ -20,6 +20,7 @@ $(document).ready(function(){
     }
 
     $('.card-lore.normal-monster-only').width($('#display-card').width());
+    $('.card-lore.normal-monster-only').height()
 
     $('.card-st-type').hide();
     maximumOnly.hide();
