@@ -19,7 +19,7 @@ $(document).ready(function(){
         $('.lore').css('font-family', 'CardEffect');
     }
 
-    $('.card-lore.normal-monster-only').width($('#display-card').width());
+    $('.card-lore.normal-monster-only').width($('.card-stats.monster-only').width());
     $('.card-lore.normal-monster-only').height()
 
     $('.card-st-type').hide();
