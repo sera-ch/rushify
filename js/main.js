@@ -19,6 +19,8 @@ $(document).ready(function(){
         $('.lore').css('font-family', 'CardEffect');
     }
 
+    $('.card-lore.normal-monster-only').width($('#display-card').width());
+
     $('.card-st-type').hide();
     maximumOnly.hide();
     stOnly.hide();
