@@ -41,6 +41,11 @@ header{
     -webkit-background-clip: text;
 }
 
+.lore p{
+    width: 100px;
+    height: 100px;
+}
+
 .text-right{
     text-align: right;
 }
