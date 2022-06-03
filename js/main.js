@@ -240,6 +240,7 @@ $(document).ready(function(){
             textFit(div);
             text.css('font-size', 'auto');
         } else{
+            textFit(div);
             text.css('font-size', '100%');
         }
     }
