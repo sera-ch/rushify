@@ -225,6 +225,8 @@ header{
 
 .card-lore.normal-monster-only{
     font-family: CardLore;
+    width: 100px;
+    height: 100px;
 }
 
 .card-effect.effect-monster-only{
