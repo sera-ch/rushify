@@ -214,7 +214,7 @@ header{
 
 .card-lore,
 .card-effect{
-    font-size: 170%;
+    font-size: auto;
     margin: 6%;
     top: 72%;
     left: 0%;
