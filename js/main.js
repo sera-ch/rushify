@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-  $('.card-lore.normal-monster-only').width($('.card-stats.monster-only').width()*0.99);
-  $('.card-lore.normal-monster-only').height();
 	$('#card-text').trumbowyg();
 
     var monsterOnly = $('.monster-only');
