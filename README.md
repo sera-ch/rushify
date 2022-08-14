@@ -1,5 +1,8 @@
 Changelog:
 
+2022/08/14:
+- Updated equip spell option
+
 2022/06/03:
 - Fixed an issue where card text is not displayed correctly the first time they are loaded.
 
