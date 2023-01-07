@@ -151,6 +151,14 @@ $(document).ready(function(){
         $('.lore').html($('.trumbowyg-editor').html());
         resizeToFit($('.lore'), $('.card-lore'));
     });
+    //Show or hide the overlay image input
+    $('#overlay').change(function(){
+        if ($('#overlay').is(":checked")){
+            $(".overlay-only").show();
+        } else{
+            $(".overlay-only").hide();
+        }
+    });
     //Show or hide the LEGEND icon
     $('#legend').change(function(){
         if ($('#legend').is(":checked")){
@@ -180,6 +188,28 @@ $(document).ready(function(){
     });
     $("#upload-btn").click(function(){
     	$("#upload-img").click();
+    });
+    $('#upload-overlay-img').on('change', function () {
+    	var form = new FormData();
+    	form.append("image", $('#upload-overlay-img').prop('files')[0])
+    	var settings = {
+    	  "url": "https://api.imgbb.com/1/upload?key=e44acc4c48ba88413eda3a867905113c",
+    	  "method": "POST",
+    	  "timeout": 0,
+    	  "processData": false,
+    	  "mimeType": "multipart/form-data",
+    	  "contentType": false,
+    	  "data": form
+    	};
+
+    	$.ajax(settings).done(function (response) {
+      	var jx = JSON.parse(response);
+      	$("#image-overlay-url").val(jx.data.url);
+    	$(".card-image-overlay").attr("src", $("#image-overlay-url").val());
+      });
+    });
+    $("#upload-overlay-btn").click(function(){
+    	$("#upload-overlay-img").click();
     });
     $("#upload-file-btn").click(function(){
     	$("#upload-file").click();

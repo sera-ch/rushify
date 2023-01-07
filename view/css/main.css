@@ -128,6 +128,18 @@ header{
     max-height: 90%;
 }
 
+.card-image-overlay{
+    top: 10%;
+    left: 0%;
+    width: 100%;
+    max-height: 100%;
+    z-index: 2;
+}
+
+.note {
+    font-style:italic;
+}
+
 .card-frame{
     position: relative;
     top: 0px;
@@ -160,12 +172,14 @@ header{
     top: 66.5%;
     left: 5%;
     width: inherit;
+    z-index: 2;
 }
 
 .card-maximum{
     top: 61.6%;
     left: 11.5%;
     width: inherit;
+    z-index: 3;
 }
 
 .card-level{
@@ -173,6 +187,7 @@ header{
     left: 6.1%;
     text-align: center;
     width: 15%;
+    z-index: 4;
 }
 
 .card-level p{
@@ -183,6 +198,7 @@ header{
     top: 28%;
     width: 100%;
     color: white;
+    z-index: 5;
     text-shadow: 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000;
 }
 
@@ -191,6 +207,7 @@ header{
     font-size: 240%;
     top: 61.6%;
     color: white;
+    z-index: 3;
     text-shadow: 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000;
 }
 
@@ -200,6 +217,7 @@ header{
     font-size: 240%;
     top: 66.8%;
     color: white;
+    z-index: 3;
     text-shadow: 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000;
 }
 
@@ -262,6 +280,7 @@ header{
     top: 10.5%;
     left: 5.5%;
     width: 25.6%;
+    z-index: 2;
 }
 
 .card-creator{

@@ -33,13 +33,17 @@ $(document).ready(function(){
                     $('#maximum-atk').val(data.cards[i]["Maximum ATK"] ? data.cards[i]["Maximum ATK"] : 0);
                     $('#rarity option:selected').val(data.cards[i].Rarity ? data.cards[i].Rarity : 'Common')
                     $('#image-url').val(data.cards[i]["Image URL"]);
+                    $('#overlay')[0].checked = data.cards[i].Overlay ? data.cards[i].Overlay : false;
+                    $('#image-overlay-url').val(data.cards[i]["Overlay image URL"]);
                     $('#creator').val(data.cards[i].Creator);
                     $('.trumbowyg-editor').html(data.cards[i]["Card text"]);
                     $('.trumbowyg-editor').keyup();
                     $('#card-name').change();
                     $('#st-type').change();
                     $('#image-url').change();
+                    $('#image-overlay-url').change();
                     $('#legend').change();
+                    $('#overlay').change();
                     saveCard(data.cards[i]["Set No."]);
                     loop(i+1);
                 });
@@ -53,7 +57,7 @@ $(document).ready(function(){
         const data = await f.arrayBuffer();
         const workbook = XLSX.read(data);
         var first_sheet_name = workbook.SheetNames[0];
-        var columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'];
+        var columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];
         var row = 2;
         var address_of_cell;
         var worksheet = workbook.Sheets[first_sheet_name];
