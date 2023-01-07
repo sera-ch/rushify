@@ -166,17 +166,33 @@
                     </div>
                 </div>
             </div>
+            <!-- For cards with overlay images-->
             <div class = "row">
                 <div class = "info col-2">
-                    ImageURL:
+                    <p>Overlay image?</p>
+                </div>
+                <div class = "info col-2">
+                    <input type = "checkbox" checked value = "overlay" id = "overlay">
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "info col-2">
+                    <p>Image:</p>
+                    <p class = "overlay-only">Overlay image:</p>
                 </div>
                 <div class = "info col-7">
-                    <input class = "input" type = "text" id = "image-url" value = "https://i.ibb.co/hCKmy7W/lunalight-leo-dancer-by-yugi-master-davfirn-fullview.png">
+                    <input class = "input" type = "text" id = "image-url" value = "https://i.ibb.co/QpQQJf8/background.jpg">
+                    <input class = "input overlay-only" type = "text" id = "image-overlay-url" value = "https://i.ibb.co/N6dxJmf/ba789baa33dceb32832ba090eb16da89.png">
                 </div>
                 <div class = "info col-3">
                     <input type = "file" accept = "image/*" id = "upload-img" class = "d-none" data-max-size = "2000">
                     <button class = "input btn btn-primary" id = "upload-btn">Upload</button>
+                    <input type = "file" accept = "image/*" id = "upload-overlay-img" class = "d-none" data-max-size = "2000">
+                    <button class = "input btn btn-primary overlay-only" id = "upload-overlay-btn">Upload</button>
                 </div>
+            </div>
+            <div class = "row">
+                <p class = "note">Square images with transparent background are recommended.</p>
             </div>
             <div class = "row">
                 <div class = "info col-12">
@@ -212,7 +228,7 @@
                 <div class = "info col-12">
                     Batch create (BETA):<br>
                     Please allow multiple file download.<br>
-                    <a href = "asset/rush_duel_card_maker_batch_template_0.01.xlsx">Get template</a>
+                    <a href = "asset/rush_duel_card_maker_batch_template_0.02.xlsx">Get template</a>
                 </div>
             </div>
             <div class = "row">
@@ -243,7 +259,8 @@
         <!-- Area to display the card -->
         <div class = "col-6" id = "display">
             <div class = "display-card" id = "display-card">
-                <img src = "https://i.ibb.co/hCKmy7W/lunalight-leo-dancer-by-yugi-master-davfirn-fullview.png" class = "card-image">
+                <img src = "https://i.ibb.co/QpQQJf8/background.jpg" class = "card-image">
+                <img src = "https://i.ibb.co/N6dxJmf/ba789baa33dceb32832ba090eb16da89.png" class = "card-image-overlay overlay-only">
                 <img src = "view/img/frame/Fusion.png" class = "card-frame">
                 <img src = "view/img/attribute/DARK.png" class = "card-attribute">
                 <div class = "card-name">

@@ -1,5 +1,8 @@
 Changelog:
 
+2023/01/07:
+- Updated option for overlay image
+
 2022/08/14:
 - Updated equip spell option
 
