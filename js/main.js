@@ -45,6 +45,7 @@ $(document).ready(function(){
         }
         //Change the card frame
         $('.card-frame').attr('src', 'view/img/frame/' + cardTypeSelected + '.png');
+        $('.card-frame-bottom').attr('src', 'view/img/frame/' + cardTypeSelected + '_Bottom.png');
         //Change the attribute
         if (cardTypeSelected == "Spell"){
             cardAttribute.attr('src', 'view/img/attribute/SPELL.png');

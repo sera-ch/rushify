@@ -146,6 +146,12 @@ header{
     left: 0px;
 }
 
+.card-frame-bottom{
+    z-index: 2;
+    position: absolute;
+    bottom: 0%;
+}
+
 .card-attribute{
     top: 3.3%;
     left: 81.1%;
@@ -232,6 +238,7 @@ header{
 
 .card-lore,
 .card-effect{
+    z-index: 4;
     font-size: auto;
     margin: 6%;
     top: 72%;
