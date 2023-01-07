@@ -34,7 +34,7 @@ $(document).ready(function(){
                     $('#rarity option:selected').val(data.cards[i].Rarity ? data.cards[i].Rarity : 'Common')
                     $('#image-url').val(data.cards[i]["Image URL"]);
                     $('#overlay')[0].checked = data.cards[i].Overlay ? data.cards[i].Overlay : false;
-                    $('#image-overlay-url').val(data.cards[i]["Overlay image URL"]);
+                    $('#image-overlay-url').val(data.cards[i]["Overlay image URL"] ? data.cards[i]["Overlay image URL"] : '');
                     $('#creator').val(data.cards[i].Creator);
                     $('.trumbowyg-editor').html(data.cards[i]["Card text"]);
                     $('.trumbowyg-editor').keyup();
