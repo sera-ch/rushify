@@ -297,6 +297,7 @@ header{
     left: 6%;
     font-size: 110%;
     width: 33%;
+    z-index: 4;
 }
 
 .card-creator::before{
@@ -304,6 +305,7 @@ header{
     font-family: CardCreator;
     color: white;
     font-size: 100%;
+    z-index: 4;
 }
 
 .card-set-number{
@@ -315,6 +317,7 @@ header{
     right: 6%;
     font-size: 130%;
     width: 33%;
+    z-index: 4;
 }
 
 .info-input{
@@ -352,24 +355,18 @@ textarea.input{
 }
 
 .card-type-1{
+    z-index: 4;
     position:relative !important;
     display: inline;
     padding-right: 0px;
 }
 
 .card-type-1.p40{
+    z-index: 4;
     padding-right: 40px;
 }
 
 .card-type-1.p50{
+    z-index: 4;
     padding-right: 50px;
-}
-
-.img-magnifier-glass {
-    position: absolute;
-    border: 3px solid #000;
-    cursor: none;
-    width: 200px;
-    height: 200px;
-    z-index: 100;
 }
