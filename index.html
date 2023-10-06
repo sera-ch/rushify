@@ -66,16 +66,16 @@
                 <!-- Card name and type -->
                 <div class = "col-6 info">
                     Card name
-                    <input class = "input" type = "text" maxlength="50" placeholder="Card name" id = "card-name" value = "Lunalight Leo Dancer">
+                    <input class = "input" type = "text" maxlength="50" placeholder="Card name" id = "card-name" value = "Traptrix Atrax">
                 </div>
                 <div class = "col-6 info">
                     Card type
                     <select class = "input" name = "ctype" id = "ctype">
                         <option value = "Normal">Normal</option>
-                        <option value = "Effect">Effect</option>
+                        <option value = "Effect" selected>Effect</option>
                         <option value = "Spell">Spell</option>
                         <option value = "Trap">Trap</option>
-                        <option value = "Fusion" selected>Fusion</option>
+                        <option value = "Fusion">Fusion</option>
                     </select>
                 </div>
             </div>
@@ -91,14 +91,14 @@
                 <!-- Type and Attribute -->
                 <div class = "col-6 info">
                     Monster type
-                    <input class = "input" type = "text" maxlength="50" placeholder="Monster type" value = "Beast-Warrior/Fusion/Effect" id = "monster-type">
+                    <input class = "input" type = "text" maxlength="50" placeholder="Monster type" value = "Insect/Effect" id = "monster-type">
                 </div>
                 <div class = "col-6 info">
                     Attribute
                     <select class = "input" name = "monster-type" id = "monster-attribute">
-                        <option value = "DARK" selected>DARK</option>
+                        <option value = "DARK">DARK</option>
                         <option value = "LIGHT">LIGHT</option>
-                        <option value = "EARTH">EARTH</option>
+                        <option value = "EARTH" selected>EARTH</option>
                         <option value = "WIND">WIND</option>
                         <option value = "WATER">WATER</option>
                         <option value = "FIRE">FIRE</option>
@@ -127,17 +127,17 @@
                         Level:
                     </div>
                     <div class = "col-6">
-                        <input type = "number" class = "input" max = "12" min = "1" placeholder = "Level" value = "10" id = "level">
+                        <input type = "number" class = "input" max = "12" min = "1" placeholder = "Level" value = "4" id = "level">
                     </div>
                 </div>
                 <div class = "col-6 info">
                     <div class = "col-3 text-right info">ATK / </div>
                     <div class = "col-3">
-                        <input class = "input atk" type = "number" max = "99999" min = "0" value = "3500" placeholder="ATK" id = "atk">
+                        <input class = "input atk" type = "number" max = "99999" min = "0" value = "1800" placeholder="ATK" id = "atk">
                     </div>
                     <div class = "col-3 text-right info">DEF / </div>
                     <div class = "col-3">
-                        <input class = "input def" type = "number" max = "99999" min = "0" value = "3000" placeholder="DEF" id = "def">
+                        <input class = "input def" type = "number" max = "99999" min = "0" value = "1000" placeholder="DEF" id = "def">
                     </div>
                 </div>
             </div>
@@ -181,8 +181,8 @@
                     <p class = "overlay-only">Overlay image:</p>
                 </div>
                 <div class = "info col-7">
-                    <input class = "input" type = "text" id = "image-url" value = "https://i.ibb.co/QpQQJf8/background.jpg">
-                    <input class = "input overlay-only" type = "text" id = "image-overlay-url" value = "https://i.ibb.co/jg7ZSZ8/ba789baa33dceb32832ba090eb16da89.png">
+                    <input class = "input" type = "text" id = "image-url" value = "https://i.ibb.co/YW3Jgr8/dft83kf-261aa86a-b0b6-43ea-afde-49954c2355be.png">
+                    <input class = "input overlay-only" type = "text" id = "image-overlay-url" value = "https://i.ibb.co/8YVSmmV/dd63tje-6f0a0e8d-971f-4399-9174-934b0cadbf7f.png">
                 </div>
                 <div class = "info col-3">
                     <input type = "file" accept = "image/*" id = "upload-img" class = "d-none" data-max-size = "2000">
@@ -197,7 +197,7 @@
             <div class = "row">
                 <div class = "info col-12">
                     Card text:
-                    <textarea class = "input" id = "card-text"><p>"Lunalight Panther Dancer" + "Lunalight Cat Dancer" + "Lunalight Kaleido Chick"&nbsp;&nbsp;<br><strong>[REQUIREMENT]&nbsp;</strong><br>None<br><strong>[MULTI-CHOICE EFFECT]</strong><br>● Destroy all monsters your opponent controls.<br>● This turn, this card can attack twice.</p></textarea>
+                    <textarea class = "input" id = "card-text"><strong>[REQUIREMENT]&nbsp;</strong><br>None<br><strong>[EFFECT]</strong><br>Unaffected by the effects of "Hole" Normal Traps. You can activate "Hole" Normal Trap Cards from your hand. The activation and effects of Normal Traps activated on your field cannot be negated.</p></textarea>
                 </div>
             </div>
             <div class = "row">
@@ -206,11 +206,11 @@
             </div>
             <div class = "row">
                 <div class = "info col-6">
-                        <input class = "input" type = "text" maxlength="20" value="Jibril" id = "creator">
+                        <input class = "input" type = "text" maxlength="20" value="Sera" id = "creator">
                 </div>
                 <div class = "info col-6">
                     <div class = "col-6 padding-5">
-                        <input class = "input" type = "text" id = "set-number" maxlength="15" value="20220101">
+                        <input class = "input" type = "text" id = "set-number" maxlength="15" value="20230101">
                     </div>
                     <div class = "col-6 padding-5">
                         <button class = "btn btn-primary input" id = "random-generate">Generate</button>
@@ -259,33 +259,33 @@
         <!-- Area to display the card -->
         <div class = "col-6" id = "display">
             <div class = "display-card" id = "display-card">
-                <img src = "https://i.ibb.co/QpQQJf8/background.jpg" class = "card-image">
-                <img src = "https://i.ibb.co/jg7ZSZ8/ba789baa33dceb32832ba090eb16da89.png" class = "card-image-overlay overlay-only">
-                <img src = "view/img/frame/Fusion.png" class = "card-frame"><br>
-                <img src = "view/img/frame/Fusion_Bottom.png" class = "card-frame-bottom">
-                <img src = "view/img/attribute/DARK.png" class = "card-attribute">
+                <img src = "https://i.ibb.co/YW3Jgr8/dft83kf-261aa86a-b0b6-43ea-afde-49954c2355be.png" class = "card-image">
+                <img src = "https://i.ibb.co/8YVSmmV/dd63tje-6f0a0e8d-971f-4399-9174-934b0cadbf7f.png" class = "card-image-overlay overlay-only">
+                <img src = "view/img/frame/Effect.png" class = "card-frame"><br>
+                <img src = "view/img/frame/Effect_Bottom.png" class = "card-frame-bottom">
+                <img src = "view/img/attribute/EARTH.png" class = "card-attribute">
                 <div class = "card-name">
-                    <div class = "card-name-1 rarity-rush">Lunalight Leo Dancer</div>
+                    <div class = "card-name-1 rarity-rush">Traptrix Atrax</div>
                 </div>
                 <img src = "view/img/stat/Stats.png" class = "card-stats monster-only">
                 <img src = "view/img/stat/Maximum.png" class = "card-maximum monster-only maximum-only">
                 <p class = "card-max-atk monster-only maximum-only">4000</p>
-                <img src = "view/img/stat/Level-10.png" class = "card-level monster-only level-only">
-                <p class = "card-atk rarity-rush monster-only">3500</p>
-                <p class = "card-def rarity-rush monster-only">3000</p>
-                <div class = "card-type"><span class = "card-type-1">Beast-Warrior/Fusion/Effect</span></div>
+                <img src = "view/img/stat/Level-4.png" class = "card-level monster-only level-only">
+                <p class = "card-atk rarity-rush monster-only">1800</p>
+                <p class = "card-def rarity-rush monster-only">1000</p>
+                <div class = "card-type"><span class = "card-type-1">Insect/Effect</span></div>
                 <img class = "card-st-type" src = "view/img/type/Field.png">
                 <div class = "card-lore normal-monster-only">
                     <div class = "lore">
-                        <p>"Lunalight Panther Dancer" + "Lunalight Cat Dancer" + "Lunalight Kaleido Chick"&nbsp;&nbsp;<br><strong>[REQUIREMENT]&nbsp;</strong><br>None<br><strong>[MULTI-CHOICE EFFECT]</strong><br>● Destroy all monsters your opponent controls.<br>● This turn, this card can attack twice.</p>
+                        <p><strong>[REQUIREMENT]&nbsp;</strong><br>None<br><strong>[EFFECT]</strong><br>Unaffected by the effects of "Hole" Normal Traps. You can activate "Hole" Normal Trap Cards from your hand. The activation and effects of Normal Traps activated on your field cannot be negated.</p>
                     </div>
                 </div>
                 <img src = "view/img/stat/Legend.png" class = "card-legend">
                 <div class = "card-creator">
-                    Jibril
+                    Sera
                 </div>
                 <div class = "card-set-number">
-                    20220101
+                    20230101
                 </div>
             </div>
         </div>

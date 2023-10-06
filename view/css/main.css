@@ -156,6 +156,7 @@ header{
     top: 3.3%;
     left: 81.1%;
     width: 14.3%;
+    z-index: 10;
 }
 
 .card-name{
