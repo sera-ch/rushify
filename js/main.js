@@ -12,6 +12,7 @@ $(document).ready(function(){
     var maximumOnly = $('.maximum-only');
     $('.progress').hide();
     $('#progress-text').hide();
+    $('#card-text').change();
 
     let cardTypeSelected = $('#ctype option:selected').val();
     if (cardTypeSelected == 'Normal'){
