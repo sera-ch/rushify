@@ -173,9 +173,8 @@ header{
 
 #card-displays {
     white-space: nowrap;
-    overflow: auto;
-    max-width: 200%;
-    width: fit-content;
+    overflow: display;
+    width: 2500px !important;
 }
 
 .card-image-1,
@@ -197,8 +196,8 @@ header{
 
 .card-image-3,
 .card-image-overlay-3 {
-    clip-path: inset(0% 0% 0% 66%);
-    transform: translate(-67%, 0);
+    clip-path: inset(0% 1% 0% 66%);
+    transform: translate(-66%, 0);
     width: 303%;
     height: auto;
 }
@@ -206,7 +205,7 @@ header{
 
 
 .connected {
-    width: 832px;
+    width: 812px;
     display: inline-block !important;
 }
 
@@ -344,15 +343,15 @@ header{
     height: fit-content;
 }
 
-.card-type::before,
-.card-type-2::before,
-.card-type-3::before{
+.card-type-1::before,
+.card-type-1-2::before,
+.card-type-1-3::before{
     content: "[";
 }
 
-.card-type::after,
-.card-type-2::after,
-.card-type-3::after{
+.card-type-1::after,
+.card-type-1-2::after,
+.card-type-1-3::after{
     content: "]";
 }
 
