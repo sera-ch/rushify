@@ -115,20 +115,26 @@ header{
     position: relative;
 }
 
-.display-card{
+.display-card,
+.display-card-2,
+.display-card-3{
     position: relative;
     width: fit-content;
 	color: black;
 }
 
-.card-image{
+.card-image,
+.card-image-2,
+.card-image-3{
     top: 10%;
-    left: 5%;
+    left: 0%;
     width: 90%;
     max-height: 90%;
 }
 
-.card-image-overlay{
+.card-image-overlay,
+.card-image-overlay-2,
+.card-image-overlay-3{
     top: 10%;
     left: 0%;
     width: 100%;
@@ -140,26 +146,73 @@ header{
     font-style:italic;
 }
 
-.card-frame{
+.card-frame,
+.card-frame-2,
+.card-frame-3{
     position: relative;
     top: 0px;
     left: 0px;
 }
 
-.card-frame-bottom{
+.card-frame-bottom,
+.card-frame-bottom-2,
+.card-frame-bottom-3{
     z-index: 2;
     position: absolute;
     bottom: 0%;
 }
 
-.card-attribute{
+.card-attribute,
+.card-attribute-2,
+.card-attribute-3{
     top: 3.3%;
     left: 81.1%;
     width: 14.3%;
     z-index: 10;
 }
 
-.card-name{
+#card-displays {
+    white-space: nowrap;
+    overflow: auto;
+    max-width: 200%;
+    width: fit-content;
+}
+
+.card-image-1,
+.card-image-overlay-1{
+    clip-path: inset(0% 67% 0% 0%);
+    transform: translate(0, 0);
+    width: 303%;
+    height: auto;
+    max-height: 90%;
+}
+
+.card-image-2,
+.card-image-overlay-2 {
+    clip-path: inset(0% 34% 0% 33%);
+    transform: translate(-33%, 0);
+    width: 303%;
+    height: auto;
+}
+
+.card-image-3,
+.card-image-overlay-3 {
+    clip-path: inset(0% 0% 0% 66%);
+    transform: translate(-67%, 0);
+    width: 303%;
+    height: auto;
+}
+
+
+
+.connected {
+    width: 832px;
+    display: inline-block !important;
+}
+
+.card-name,
+.card-name-2,
+.card-name-3{
     top: -0.5%;
     left: 3%;
     font-family: CardName;
@@ -169,13 +222,17 @@ header{
     text-align: left;
 }
 
-.card-name-1{
+.card-name-1,
+.card-name-1-2,
+.card-name-1-3{
     font-size: 600%;
     text-align: left;
     left: 20px;
 }
 
-.card-stats{
+.card-stats,
+.card-stats-2,
+.card-stats-3{
     top: 66.5%;
     left: 5%;
     width: inherit;
@@ -189,7 +246,9 @@ header{
     z-index: 3;
 }
 
-.card-level{
+.card-level,
+.card-level-2,
+.card-level-3{
     top: 59.8%;
     left: 6.1%;
     text-align: center;
@@ -197,7 +256,9 @@ header{
     z-index: 4;
 }
 
-.card-level p{
+.card-level p,
+.card-level-2 p,
+.card-level-3 p{
     font-family: CardStat;
     text-align: center;
     position: absolute;
@@ -219,7 +280,11 @@ header{
 }
 
 .card-atk,
-.card-def{
+.card-def,
+.card-atk-2,
+.card-def-2,
+.card-atk-3,
+.card-def-3{
     font-family: CardStat;
     font-size: 240%;
     top: 66.8%;
@@ -228,17 +293,25 @@ header{
     text-shadow: 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000, 0px 0px 7px #000000;
 }
 
-.card-atk{
+.card-atk,
+.card-atk-2,
+.card-atk-3{
     right: 48.5%;
 }
 
 .card-def,
+.card-def-2,
+.card-def-3,
 .card-max-atk{
     right: 18%;
 }
 
 .card-lore,
-.card-effect{
+.card-effect,
+.card-lore-2,
+.card-effect-2,
+.card-lore-3,
+.card-effect-3{
     z-index: 4;
     font-size: auto;
     margin: 6%;
@@ -249,29 +322,43 @@ header{
     padding: 0% 1% 0% 1%;
 }
 
-.card-lore.normal-monster-only{
+.card-lore.normal-monster-only,
+.card-lore-2.normal-monster-only,
+.card-lore-3.normal-monster-only{
     font-family: CardLore;
     width: 720px;
 }
 
-.card-effect.effect-monster-only{
+.card-effect.effect-monster-only,
+.card-effect-2.effect-monster-only,
+.card-effect-3.effect-monster-only{
     font-family: CardEffect;
 }
 
 .lore,
-.effect{
+.effect,
+.lore-2,
+.effect-2,
+.lore-3,
+.effect-3{
     height: fit-content;
 }
 
-.card-type::before{
+.card-type::before,
+.card-type-2::before,
+.card-type-3::before{
     content: "[";
 }
 
-.card-type::after{
+.card-type::after,
+.card-type-2::after,
+.card-type-3::after{
     content: "]";
 }
 
-.card-type{
+.card-type,
+.card-type-2,
+.card-type-3{
     font-family: CardType;
     font-size: 170%;
     top: 71.8%;
@@ -291,7 +378,9 @@ header{
     z-index: 2;
 }
 
-.card-creator{
+.card-creator,
+.card-creator-2,
+.card-creator-3{
     font-family: CardCreator;
     color: white;
     top: 94%;
@@ -301,7 +390,9 @@ header{
     z-index: 4;
 }
 
-.card-creator::before{
+.card-creator::before,
+.card-creator-2::before,
+.card-creator-3::before{
     content: '© ';
     font-family: CardCreator;
     color: white;
@@ -309,7 +400,9 @@ header{
     z-index: 4;
 }
 
-.card-set-number{
+.card-set-number,
+.card-set-number-2,
+.card-set-number-3{
     text-align: right;
     font-weight: bold;
     font-family: "MS UI Gothic";
@@ -338,6 +431,14 @@ header{
 	background-color: rgb(43, 43, 43);
 }
 
+.input-3{
+    height: 100%;
+    width: 20%;
+    padding: 10px;
+	color: white;
+	background-color: rgb(43, 43, 43);
+}
+
 textarea.input{
     height: 200px;
 }
@@ -355,19 +456,25 @@ textarea.input{
     font-weight: normal;
 }
 
-.card-type-1{
+.card-type-1,
+.card-type-1-2,
+.card-type-1-3{
     z-index: 4;
     position:relative !important;
     display: inline;
     padding-right: 0px;
 }
 
-.card-type-1.p40{
+.card-type-1.p40,
+.card-type-1-2.p40,
+.card-type-1-3.p40{
     z-index: 4;
     padding-right: 40px;
 }
 
-.card-type-1.p50{
+.card-type-1.p50,
+.card-type-1-2.p50,
+.card-type-1-3.p50{
     z-index: 4;
     padding-right: 50px;
 }
