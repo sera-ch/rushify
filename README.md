@@ -1,5 +1,9 @@
 Changelog:
 
+2023/10/30:
+- Various bugfix
+- Remove batch create
+
 2023/01/07:
 - Updated option for overlay image
 
