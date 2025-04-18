@@ -37,7 +37,7 @@ $(document).ready(function(){
         }
         //Show monster card or spell/trap card info input depending on player selection
         let cardTypeSelected = $('#ctype option:selected').val();
-        if (cardTypeSelected == "Normal" || cardTypeSelected == "Effect" || cardTypeSelected == "Fusion"){
+        if (cardTypeSelected != "Spell" && cardTypeSelected != "Trap"){
             stOnly.hide();
             monsterOnly.show();
         } else{
@@ -59,10 +59,21 @@ $(document).ready(function(){
         let monsterType = $('#monster-type').val();
         if (cardTypeSelected == "Spell"){
             $('.card-type-1').html("Spell Card");
+            $('.card-type-1').removeClass('white-text')
+            $('.card-name-1').removeClass('white-text')
         } else if (cardTypeSelected == "Trap"){
             $('.card-type-1').html("Trap Card");
+            $('.card-type-1').removeClass('white-text')
+            $('.card-name-1').removeClass('white-text')
         } else{
             $('.card-type-1').html(monsterType);
+            if (cardTypeSelected == 'Xyz') {
+                $('.card-type-1').addClass('white-text')
+                $('.card-name-1').addClass('white-text')
+            } else {
+               $('.card-type-1').removeClass('white-text')
+               $('.card-name-1').removeClass('white-text')
+            }
         }
         //Change the monster level
         let level = $('#level').val() > 12 ? 12 : ($('#level').val() < 1 ? 1 : $('#level').val());
@@ -123,6 +134,16 @@ $(document).ready(function(){
                 }
                 $('.card-st-type').show();
                 $('.card-st-type').attr('src', 'view/img/type/' + $('#st-type option:selected').val() + '.png');
+                if (cardTypeSelected == 'Spell') {
+                    $('.card-st-type').addClass('left-28');
+                    $('.card-st-type').removeClass('left-27');
+                } else if (cardTypeSelected == 'Trap') {
+                    $('.card-st-type').addClass('left-27');
+                    $('.card-st-type').removeClass('left-28');
+                } else {
+                    $('.card-st-type').removeClass('left-28');
+                    $('.card-st-type').removeClass('left-27');
+                }
             } else{
                 $('.card-st-type').hide();
                 $('.card-type-1').removeClass('p40');
