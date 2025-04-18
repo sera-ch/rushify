@@ -4,7 +4,7 @@ Changelog:
 - Fix an error where Spell/Trap type mini-icons are not displayed
 - Fix Spell/Trap card type display issue
 - Add Ritual monster, Synchro monster and Xyz monster (Templates thanks to Phanthelia on Deviantart https://www.deviantart.com/phanthelia)
-- Add Continuous, Ritual and Counter Spell/Trap types and icons
+- Add Continuous, Quick-Play, Ritual and Counter Spell/Trap types and icons
 
 2023/10/30:
 - Various bugfix
